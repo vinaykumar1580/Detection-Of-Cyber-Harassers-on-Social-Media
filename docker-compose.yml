@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6.0.14
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  flaskapi:
+    build:
+      context: ./flaskapi
+      dockerfile: Dockerfile
+    container_name: flaskapi
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - flaskapi
+      - mongo
+
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+      target: build
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

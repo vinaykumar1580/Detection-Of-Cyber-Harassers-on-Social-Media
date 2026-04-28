@@ -1,0 +1,76 @@
+/* Figma-inspired background */
+.register-container {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 0px;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Registration card design */
+.register-card {
+    background: #ffffff;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Input field styling */
+.input-style {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-style:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(106, 17, 203, 0.2);
+}
+
+/* Button animations */
+.btn-animate {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-animate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .register-card {
+        max-width: 90%;
+    }
+}
